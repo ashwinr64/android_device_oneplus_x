@@ -29,7 +29,7 @@ on init
     symlink /sdcard /storage/sdcard0
 
 # Pass required symbols for OOS Blobs
-export LD_SHIM_LIBS /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/bin/rild|libOP.so:/system/lib/libril.so|libOP.so
+export LD_SHIM_LIBS /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/bin/rild|libOP_ril.so:/system/lib/libril.so|libOP_ril.so:/system/lib/hw/camera.msm8974.so|libOP_camera.so
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB

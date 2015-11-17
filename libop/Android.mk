@@ -18,7 +18,26 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := ril.c
 LOCAL_SHARED_LIBRARIES := libbinder
-LOCAL_MODULE := libOP
+LOCAL_MODULE := libOP_ril
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
+LOCAL_SRC_FILES := \
+    gui/SensorManager.cpp \
+    ui/GraphicBuffer.cpp \
+    ui/GraphicBufferAllocator.cpp \
+    ui/GraphicBufferMapper.cpp
+
+LOCAL_SHARED_LIBRARIES := \
+    libbinder libcutils libgui libhardware liblog libsync libui libutils
+
+LOCAL_MODULE := libOP_camera
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)

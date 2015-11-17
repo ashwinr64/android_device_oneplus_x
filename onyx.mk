@@ -97,7 +97,8 @@ PRODUCT_PACKAGES += \
 	
 # libOP
 PRODUCT_PACKAGES += \
-    libOP
+    libOP_ril \
+    libOP_camera
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
