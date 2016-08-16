@@ -100,10 +100,6 @@ PRODUCT_PACKAGES += \
     libshim_camera \
     Snap
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Data
 PRODUCT_PACKAGES += \
     librmnetctl \
