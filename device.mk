@@ -95,9 +95,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
-    libboringssl-compat \
     libstlport \
-    libshim_camera \
     Snap
 
 # Data
