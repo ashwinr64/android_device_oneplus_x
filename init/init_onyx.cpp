@@ -32,38 +32,32 @@
 #include "log.h"
 #include "util.h"
 
-#define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
-
 void vendor_load_properties()
 {
-    char device[PROP_VALUE_MAX];
-    char platform[PROP_VALUE_MAX];
-    char rf_version[PROP_VALUE_MAX];
-    int rc;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+    std::string platform = property_get("ro.board.platform");
+    if (!strstr(platform.c_str(), ANDROID_TARGET))
         return;
 
-    property_get("ro.boot.rf_version", rf_version);
+    std::string rf_version = property_get("ro.boot.rf_version");
 
-    if (strstr(rf_version, "101")) {
+    if (strstr(rf_version.c_str(), "101")) {
         /* China */
         property_set("ro.product.model", "ONE E1001");
         property_set("ro.rf_version", "TDD_FDD_Ch_All");
-    } else if (strstr(rf_version, "102")) {
+    } else if (strstr(rf_version.c_str(), "102")) {
         /* Asia/Europe */
         property_set("ro.product.model", "ONE E1003");
         property_set("ro.rf_version", "TDD_FDD_Eu");
-    } else if (strstr(rf_version, "103")){
+    } else if (strstr(rf_version.c_str(), "103")){
         /* America */
         property_set("ro.product.model", "ONE E1005");
         property_set("ro.rf_version", "TDD_FDD_Am");
-    } else if (strstr(rf_version, "107")){
+    } else if (strstr(rf_version.c_str(), "107")){
         /* China CTCC Version */
         property_set("ro.product.model", "ONE E1000");
         property_set("ro.rf_version", "TDD_FDD_ALL_OPTR");
     }
-    property_get("ro.product.device", device);
-    INFO("Found rf_version : %s setting build properties for %s device\n", rf_version, device);
+    std::string device = property_get("ro.product.device");
+    INFO("Found rf_version : %s setting build properties for %s device\n", rf_version.c_str(), device.c_str());
 }
