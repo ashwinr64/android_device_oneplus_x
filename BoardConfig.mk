@@ -146,7 +146,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 PROTOBUF_SUPPORTED := true
 
 # QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
+# BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
