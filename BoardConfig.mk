@@ -164,6 +164,9 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
 
+# Sensors Compat
+BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
